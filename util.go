@@ -41,16 +41,10 @@ func parsePtyRequest(s []byte) (pty Pty, ok bool) {
 
 func parseWinchRequest(s []byte) (win Window, ok bool) {
 	width32, s, ok := parseUint32(s)
-	if width32 < 1 {
-		ok = true
-	}
 	if !ok {
 		return
 	}
 	height32, _, ok := parseUint32(s)
-	if height32 < 1 {
-		ok = true
-	}
 	if !ok {
 		return
 	}
